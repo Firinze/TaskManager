@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Les attributs qui peuvent être assignés en masse.
      *
      * @var array<int, string>
      */
@@ -23,7 +23,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Les attributs qui doivent être cachés pour la sérialisation.
      *
      * @var array<int, string>
      */
@@ -33,7 +33,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Obtenir les attributs qui doivent être castés.
      *
      * @return array<string, string>
      */
@@ -43,5 +43,58 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    } 
+    
+    /**
+     * Relation many-to-many avec le modèle Role.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * Vérifie si l'utilisateur a plusieurs rôles.
+     *
+     * @param array $teroles
+     * @return bool
+     */
+    public function manyRoles(array $teroles)
+    {
+        return $this->roles()->whereIn('name', $teroles)->exists();
+    }
+
+    /**
+     * Vérifie si l'utilisateur est un administrateur.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->roles()->where('name', '=', 'admin')->exists();
+    }
+
+    /**
+     * Relation one-to-many avec le modèle Task.
+     */
+    public function teTasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+    /**
+     * Relation one-to-many avec le modèle Task pour les tâches créées par l'utilisateur.
+     */
+    public function teCreateTask()
+    {
+        return $this->hasMany(Task::class, 'teuser_created_by');
+    }
+
+    /**
+     * Relation one-to-many avec le modèle Task pour les tâches assignées à l'utilisateur.
+     */
+    public function teAssignedTasks()
+    {
+        return $this->hasMany(Task::class, 'teuser_assigned_to');
     }
 }
