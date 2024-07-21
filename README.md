@@ -90,13 +90,13 @@ Ensuite, ouvrez votre navigateur et accédez à votre localhost.
 ## Fonctionnalités
 
 - **Gestion des Tâches**
-  - Créer, éditer, supprimer des tâches
-  - Assigner des tâches à des utilisateurs
-  - Mettre à jour le statut des tâches
+  - Créer, éditer, supprimer des tâches (Admin et manager)
+  - Assigner des tâches à des utilisateurs(Admin et manager)
+  - Mettre à jour le statut des tâches(Admin, manager et User)
 
 - **Gestion des Utilisateurs**
   - Créer, éditer, supprimer des utilisateurs (Admin uniquement)
-  - Assigner des rôles aux utilisateurs (Admin et manager uniquement)
+  - Assigner des rôles aux utilisateurs (Admin uniquement)
 
 - **Authentification et Autorisation**
   - Inscription et connexion des utilisateurs
