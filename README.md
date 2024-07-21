@@ -51,7 +51,9 @@ git clone https://github.com/Firinze/TaskManager.git
 7. Seed la base de données avec des rôles et des utilisateurs préexistants :
 
     
-    php artisan db:seed )
+    php artisan db:seed
+
+   )
 
 Ou 
 
