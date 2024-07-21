@@ -42,7 +42,7 @@ git clone https://github.com/Firinze/TaskManager.git
     php artisan key:generate
     
 
-6. Créez la base de données et exécutez les migrations :
+(6. Créez la base de données et exécutez les migrations :
 
     
     php artisan migrate
@@ -51,7 +51,11 @@ git clone https://github.com/Firinze/TaskManager.git
 7. Seed la base de données avec des rôles et des utilisateurs préexistants :
 
     
-    php artisan db:seed
+    php artisan db:seed )
+
+Ou 
+
+8- Utiliser la base de donnée task_manager.sql
     
 
 ## Utilisation
